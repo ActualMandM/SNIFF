@@ -35,6 +35,7 @@ namespace SNIFF
 		public const int NoteSize = 24;
 		public static ushort ppqn = 96;
 		public static string name = "";
+		public static string stage = "";
 		public static float bpm = 0;
 		public static List<float> bpmList = new List<float>();
 		public static int needsVoices = 0; //0 = undecided, -1 = false, 1 = true
@@ -86,6 +87,7 @@ namespace SNIFF
 		{
 			Globals.ppqn = 96;
 			Globals.name = "";
+			Globals.stage = "";
 			Globals.bpm = 0;
 			Globals.needsVoices = 0;
 			Globals.player1 = "";
@@ -371,6 +373,11 @@ namespace SNIFF
 				Globals.player2 = Console.ReadLine();
 			}
 			song.Add("player2", Globals.player2);
+			if (Globals.stage == "") {
+				Console.Write("stage (see assets\\data\\stageList.txt): ");
+				Globals.stage = Console.ReadLine();
+			}
+			song.Add("stage", Globals.stage);
 			Console.Write("speed: ");
 			song.Add("speed", float.Parse(Console.ReadLine()));
 			int enableChangeBPM = 0; // 0 = no, 1 = yes, 2 = yes and use bpmList.txt
