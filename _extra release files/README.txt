@@ -12,3 +12,5 @@ if you GROUP notes, they might not export so be careful with that
 it's probably best to pad out the end of the song with an unassigned note (i prefer B3) if there's still audio playing, so it generates some empty sections
 
 if you have bugs to report, @ ME!!!!! @MtH#1574 discord @MtH13208 twitter @PrincessMtH github (if this is on there yet)
+
+also some text from m7m  this asks for stage for ripping build lol!
