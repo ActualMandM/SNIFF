@@ -36,11 +36,13 @@ namespace SNIFF
 		public static ushort ppqn = 96;
 		public static string name = "";
 		public static string stage = "";
+		public static string noteStyle = "";
 		public static float bpm = 0;
 		public static List<float> bpmList = new List<float>();
 		public static int needsVoices = 0; //0 = undecided, -1 = false, 1 = true
 		public static string player1 = "";
 		public static string player2 = "";
+		public static string gfVersion = "";
 	}
 
 	public enum MIDINotes
@@ -88,10 +90,12 @@ namespace SNIFF
 			Globals.ppqn = 96;
 			Globals.name = "";
 			Globals.stage = "";
+			Globals.noteStyle = "";
 			Globals.bpm = 0;
 			Globals.needsVoices = 0;
 			Globals.player1 = "";
 			Globals.player2 = "";
+			Globals.gfVersion = "";
 		}
 
 		public static FLNote MakeNote(float strumTime, int noteData, float sustainLength, bool mustHitSection, float bpm)
@@ -363,6 +367,16 @@ namespace SNIFF
 				Globals.needsVoices = Console.ReadLine().ToLower().Trim() == "n" ? -1 : 1;
 			}
 			song.Add("needsVoices", Globals.needsVoices > 0);
+			if (Globals.stage == "") {
+				Console.Write("stage (see assets\\data\\stageList.txt): ");
+				Globals.stage = Console.ReadLine();
+			}
+			song.Add("stage", Globals.stage);
+			if (Globals.noteStyle == "") {
+				Console.Write("noteStyle (see assets\\data\\noteStyleList.txt): ");
+				Globals.noteStyle = Console.ReadLine();
+			}
+			song.Add("noteStyle", Globals.noteStyle);
 			if (Globals.player1 == "") {
 				Console.Write("player1 (see assets\\data\\characterList.txt): ");
 				Globals.player1 = Console.ReadLine();
@@ -373,11 +387,11 @@ namespace SNIFF
 				Globals.player2 = Console.ReadLine();
 			}
 			song.Add("player2", Globals.player2);
-			if (Globals.stage == "") {
-				Console.Write("stage (see assets\\data\\stageList.txt): ");
-				Globals.stage = Console.ReadLine();
+			if (Globals.gfVersion == "") {
+				Console.Write("gfVersion (see assets\\data\\gfVersionList.txt): ");
+				Globals.gfVersion = Console.ReadLine();
 			}
-			song.Add("stage", Globals.stage);
+			song.Add("gfVersion", Globals.gfVersion);
 			Console.Write("speed: ");
 			song.Add("speed", float.Parse(Console.ReadLine()));
 			int enableChangeBPM = 0; // 0 = no, 1 = yes, 2 = yes and use bpmList.txt
