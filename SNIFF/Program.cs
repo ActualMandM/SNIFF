@@ -584,7 +584,7 @@ namespace SNIFF
 			song.Add("notes", JArray.FromObject(sections));
 			JObject file = new JObject {
 					{ "song", song },
-					{ "generatedBy", "SNIFF ver." + Globals.VersionNumber }
+					{ "generatedBy", "SNIFF ver." + Globals.VersionNumber + "-kade" }
 				};
 			return file;
 		}
